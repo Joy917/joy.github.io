@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>面向对象还是基于对象 | 易小师的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="云深不知处,">
+  
+
+  <meta name="description" content="笔者第一次了解「面向对象」这个概念，还是在大学学习 Java 的时候。耳熟能详的「面向对象三大特性」那也是张口就来：封装、继承、多态。但是最近在学习「重学前端」课程的时候，文中提到了这个问题，我一时竟有些语塞。 想要区分二者的关系，我们还是要回到对「对象」这个概念的理解。 对象（Object）由于翻译的原因，中文的语境不太容易理解。其实在英文中，Object 指一切事物的总称，更能反映面向对象编程">
+<meta name="keywords" content="云深不知处">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象还是基于对象">
+<meta property="og:url" content="http://yoursite.com/2019/04/01/面向对象还是基于对象/index.html">
+<meta property="og:site_name" content="易小师的博客">
+<meta property="og:description" content="笔者第一次了解「面向对象」这个概念，还是在大学学习 Java 的时候。耳熟能详的「面向对象三大特性」那也是张口就来：封装、继承、多态。但是最近在学习「重学前端」课程的时候，文中提到了这个问题，我一时竟有些语塞。 想要区分二者的关系，我们还是要回到对「对象」这个概念的理解。 对象（Object）由于翻译的原因，中文的语境不太容易理解。其实在英文中，Object 指一切事物的总称，更能反映面向对象编程">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2019-03-31T17:24:01.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象还是基于对象">
+<meta name="twitter:description" content="笔者第一次了解「面向对象」这个概念，还是在大学学习 Java 的时候。耳熟能详的「面向对象三大特性」那也是张口就来：封装、继承、多态。但是最近在学习「重学前端」课程的时候，文中提到了这个问题，我一时竟有些语塞。 想要区分二者的关系，我们还是要回到对「对象」这个概念的理解。 对象（Object）由于翻译的原因，中文的语境不太容易理解。其实在英文中，Object 指一切事物的总称，更能反映面向对象编程">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-面向对象还是基于对象" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">面向对象还是基于对象</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.04.01</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Joy917</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>笔者第一次了解「面向对象」这个概念，还是在大学学习 Java 的时候。耳熟能详的「面向对象三大特性」那也是张口就来：封装、继承、多态。但是最近在学习「重学前端」课程的时候，文中提到了这个问题，我一时竟有些语塞。</p>
+<p>想要区分二者的关系，我们还是要回到对「对象」这个概念的理解。</p>
+<p>对象（Object）由于翻译的原因，中文的语境不太容易理解。其实在英文中，Object 指一切事物的总称，更能反映面向对象编程（oop）的抽象思维。</p>
+<p>参考《面向对象分析与设计》，对象的三个本质特征分别是：</p>
+<ul>
+<li>具有唯一标志性：即使完全相同的两个对象，也并非同一个对象。</li>
+<li>有状态：同一个对象可能处于不同的状态之下。</li>
+<li>具有行为：对象的状态可能会随着行为而改变。</li>
+</ul>
+<p>而在 Java 中，后面两个特征分别称为属性、方法。</p>
+<p>而面向对象编程，是一种仿现实世界的高度抽象的编程；而基于对象，只是语言设计时的基础设施，由对象提供而已。并不是只有「类」的概念的语言才称之为面向对象，关键在于区分它到底有没有去实现对象的本质特征。例如 JS，虽然它是一种高度动态的对象系统（可以运行时改变对象的行为，Java做不到），但是仍然属于面向对象。</p>
+<p>其实仔细想一想，我们就能从语言的设计思想上，更宏观的去回答这个问题。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">look at me !</span>
+      <div class="donation-body">
+        <div class="tip text-center">欢迎交流</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/wechat.jpg" alt>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/03/26/来自搭博客的碎碎念/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/04/16/双喜临门/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'joy';
+    
+    var disqus_url = 'http://yoursite.com/2019/04/01/面向对象还是基于对象/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//joy.disqus.com/count.js" async></script>
+
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
